@@ -1,0 +1,59 @@
+* {
+    font-family: Arial;
+}
+
+body {
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    border-bottom: solid rgb(146, 7, 7) 3px;
+    display: flex;
+}
+
+.escudo {
+    width: 200px;
+    height: 100px;
+}
+
+.header .container {
+    justify-content: space-between;
+    align-items: center;
+} 
+
+.navBar {
+    width: 700px;
+    display: flex;
+    color: red;
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+a {
+    text-decoration: none;
+    color: red;
+}
+
+/* Header */
+
+/* Banner */
+
+.banner {
+    background-image: url(https://emotioncard.com.br/wp-content/uploads/2017/10/mosaico-torcida-flamengo.jpg);
+    background-position: 100% 89%;
+    background-size: cover;
+    width: 100%;
+    height: 570px;
+}
+
+/* Banner */
