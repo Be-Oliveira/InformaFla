@@ -1,0 +1,28 @@
+/* Header2 */ 
+.navBar2 {
+    width: 900px;
+    display: flex;
+    color: red;
+    list-style: none;
+    justify-content: space-evenly;
+
+}
+
+
+h1 {
+    color: red;
+    font-family: Georgia;
+    margin: 2%;
+}
+h4 {
+    color: red;
+    margin: 2%;
+}
+span {
+color: red;
+margin: 2%;
+}
+input {
+    margin: 2%;
+  
+}

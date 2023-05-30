@@ -1,0 +1,44 @@
+/* Header2 */ 
+.navBar2 {
+    width: 700px;
+    display: flex;
+    color: red;
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+
+
+
+/* História */ 
+
+
+.cardH {
+    width: 400px;
+    height: 525px;
+    display: flex;
+    flex-direction: column;
+    padding: 60px;
+}
+
+
+.container .cardH h1 {
+    font-size: 50px;
+    color:rgb(194, 5, 5);
+    
+}
+
+.container .cardH p {
+    width: 550px;
+    font-size: 20px;
+    color: red;
+}
+
+.cardH img {
+    width: 600px;
+    height: 400px;
+    margin-left: 100px;
+    margin-top: 100px;
+    margin-bottom: 170px;
+}
+/* História */ 

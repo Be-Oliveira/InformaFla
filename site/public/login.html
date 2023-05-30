@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="./js/funcoes.js"></script>
+
+    <link rel="stylesheet" href="CSS/site.css">
+    <link rel="stylesheet" href="CSS/cadastro.css">
+</head>
+
+<body>
+    <!-- Header -->
+
+    <div class="header">
+        <div class="container">
+            <div class="div_escudo">
+                <img src="https://imgsapp.df.superesportes.com.br/app/noticia_127116951798/2017/05/29/61813/20170529192244926000a.png"
+                    class="escudo">
+
+            </div>
+            <ul class="navBar">
+                <a href="index.html">
+                    <li>Início</li>
+                </a>
+                <a href="sobre.html">
+                    <li>Sobre o Clube</li>
+                </a>
+                <li>|</li>
+                <a href="cadastro.html">
+                    <li>Cadastro</li>
+                </a>
+                <a href="login.html">
+                    <li>Login</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <!-- Header-->
+    <!-- Cadastro -->
+    <div class="Cadastro">
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
+            </div>
+        </div>
+        <h1>Login</h1>
+        <div class="container">
+            <div class="cardCadastro">
+
+                <p>Email</p>
+                <input id="input_email" type="text" placeholder="Digite seu email">
+
+                <p>Senha</p>
+                <input id="input_senha" type="password" placeholder="****">
+
+                <br><br>
+                <button onclick="login()">Logar</button>
+
+            </div>
+            <div id="mensagem_cadastro"></div>
+        </div>
+    </div>
+    <!-- Cadastro -->
+</body>
+
+</html>
+<script>
+    function login() {
+        function entrar() {
+           // aguardar();
+
+            var email = input_email.value;
+            var senha = input_senha.value;
+            
+           
+
+            if (emailVar == "" || senhaVar == "") {
+                cardErro.style.display = "block"
+                mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+              //  finalizarAguardar();
+                return false;
+            }
+            else {
+                // setInterval(sumirMensagem, 5000)
+                            window.location = "C:\Users\beroc\Documents\web-data\web-data-viz\site\public\jogos.html";
+            }
+
+            console.log("FORM LOGIN: ", email);
+            console.log("FORM SENHA: ", senha);
+
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: email,
+                    senhaServer: senha
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.id;
+
+                        setTimeout(() => {
+                            window.location = "jogos.html";
+                        }, 1000); // apenas para exibir o loading
+
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                     //   finalizarAguardar(texto);
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+            return false;
+        }
+
+        function sumirMensagem() {
+            cardErro.style.display = "none"
+        }
+    }
+</script>
