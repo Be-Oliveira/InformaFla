@@ -16,7 +16,7 @@
 
 <body>
 
-     <!-- Header -->
+    <!-- Header -->
 
     <div class="header">
         <div class="container">
@@ -42,9 +42,9 @@
             </ul>
         </div>
     </div>
-              <!-- Header-->
+    <!-- Header-->
 
-               <!-- Header2-->
+    <!-- Header2-->
 
     <ul class="navBar2">
         <a href="jogos.html">
@@ -60,132 +60,226 @@
 
     <!-- Header2-->
 
-              <!-- Perguntas quiz -->
-              <br> <br>
-              <h1>Bem-vindo ao Quiz do Mengão! </h1>
-            
-              <h4>Aqui iremos testar seu conhecimento sobre o nosso clube, após o término poderá ver seus pontos e 
-                sua colocação na nossa tabela de resultados. Boa sorte Rubro-Negro!</h4>
-                <br> <br><br>
+    <!-- Perguntas quiz -->
+    <br> <br>
+    <h1>Bem-vindo ao Quiz do Mengão! </h1>
 
-                <br><br>
-<span> 1. Quando o Flamengo foi campeão carioca pela primeira vez  ?  <br> <br>
+    <h4>Aqui iremos testar seu conhecimento sobre o nosso clube, após o término poderá ver seus pontos e
+        sua colocação na nossa tabela de resultados. Boa sorte Rubro-Negro!</h4>
+    <br> <br><br>
 
-    <input type="text" id="input_1resposta">
+    <br>
+    <div id="div_mensagem"></div>
 
-<input type="radio" id="1910" name="1pergunta">
-<label for="1910">1910</label> <br>
-<input type="radio" id="1912 " name="1pergunta">
-<label for="1912 ">1912 </label> <br>
-<input type="radio" id="1914  " name="1pergunta">
-<label for="1914">1914  </label><br>
-<input type="radio" id="1895" name="1pergunta">
-<label for="1895 ">1895 </label> <br>
-
-<br> <br>
- <span> 2. Qual o nome do primeiro uniforme do futebol do Flamengo  ?  <br> <br>
-
-<input type="radio" id="Cobra_coral" name="2pergunta">
-<label for="Cobra_coral">Cobra coral</label> <br>
-<input type="radio" id="Urubu_rei " name="2pergunta">
-<label for="Urubu_rei ">Urubu rei </label> <br>
-<input type="radio" id="Papagaio_vintém" name="2pergunta">
-<label for="Papagaio_vintém">Papagaio vintém  </label><br>
-<input type="radio" id="Rubro_vivo" name="2pergunta">
-<label for="Rubro_vivo ">Rubro vivo </label> <br>
+    <center>
+        <span> 1. Quando o Flamengo foi campeão carioca pela primeira vez ? <br> <br>
 
 
-<br>
-<span> 3. Quando e contra qual time o Pelé jogou pelo Flamengo  ?<br>
 
-1979 / Vasco da Gama 
-1978 / Palmeiras 
-1977 / Atlético Mineiro 
-1979 / Atlético Mineiro
-<br>
-<span> 4. Em que ano o Zico estreou no time profissional do Flamengo  ?<br>
-
-1970
-1971
-1972
-1973
-<br>
-<span> 5. Qual o primeiro jogador do Flamengo a fazer um gol em Copa do Mundo  ?<br>
-
-Araken
-Leônidas da Silva 
-Marquito
-Moderato
-<br>
-<span> 6. Qual o mais jovem jogador do Flamengo a estrear na Copa Libertadores  ?<br>
-
-Lincon
-Reinier
-Vinicius Jr.
-Léo Duarte
-<br>
-<span> 7. Qual o jogo tem o recorde de público do campeonato brasileiro  e quando aconteceu  ?<br>
-
-Flamengo x Atlético MG / 1980
-Flamengo x Fluminense  / 2019
-Flamengo x Corinthians  / 1982
-Flamengo x Santos  / 1983
-<br>
-<span> 8. O Flamengo foi fundado em 1895. 
-Quando foi o primeiro jogo de futebol do Flamengo  ?<br>
-Contra quem ?
-
-1895 / Botafogo 
-1912 / Fluminense 
-1910/ Fluminense 
-1912 / Mangueira
-<br>
-<span> 9. Qual jogador tem mais jogos com a camisa do Flamengo  ?<br>
-
-Carlinhos 
-Júnior 
-Cantarelli
-Paulo Henrique
-<br>
-<span> 10. Qual o treinador tem mais jogos dirigindo o Flamengo  ?<br>
-
-Carlinhos 
-Zagalo
-Flávio Costa
-Cláudio Coutinho
+            <select name="Esolha" id="pergunta1">
+                <option value="1910">1910</option>
+                <option value="1912">1912</option>
+                <option value="1914">1914</option>
+                <option value="1895">1895</option>
+            </select>
 
 
-<button onclick="resultado()">Resultado</button>
 
+            <br> <br>
+            <span> 2. Qual o nome do primeiro uniforme do futebol do Flamengo ? <br> <br>
+
+
+
+                <select name="Esolha" id="pergunta2">
+                    <option value="Cobra_coral">Cobra coral</option>
+                    <option value="Urubu_rei">Urubu rei</option>
+                    <option value="Papagaio_vintém">Papagaio vintém</option>
+                    <option value="Rubro_vivo">Rubro vivo</option>
+                </select>
+
+                <br> <br>
+
+                <span> 3. Quando e contra qual time o Pelé jogou pelo Flamengo ?<br><br>
+
+                    <select name="Esolha" id="pergunta3">
+                        <option value="1979 / Vasco da Gama"> 1979 / Vasco da Gama</option>
+                        <option value="1978 / Palmeiras"> 1978 / Palmeiras</option>
+                        <option value="1979 / Atlético Mineiro"> 1979 / Atlético Mineiro</option>
+                        <option value="1977 / Atlético Mineiro"> 1977 / Atlético Mineiro</option>
+                    </select>
+
+
+                    <br> <br>
+                    <span> 4. Em que ano o Zico estreou no time profissional do Flamengo ?<br><br>
+                        <select name="Esolha" id="pergunta4">
+                            <option value="1970">1970</option>
+                            <option value="1971">1971</option>
+                            <option value="1972">1972</option>
+                            <option value="1973">1973</option>
+                        </select>
+
+
+
+                        <br> <br>
+                        <span> 5. Qual o primeiro jogador do Flamengo a fazer um gol em Copa do Mundo ?<br><br>
+                            <select name="Esolha" id="pergunta5">
+                                <option value="Araken">Araken</option>
+                                <option value="Leônidas da Silva">Leônidas da Silva</option>
+                                <option value="Marquito">Marquito</option>
+                                <option value="Moderato">Moderato</option>
+                            </select>
+
+
+                            <br> <br>
+                            <span> 6. Qual o mais jovem jogador do Flamengo a estrear na Copa Libertadores ?<br><br>
+                                <select name="Esolha" id="pergunta6">
+                                    <option value="Lincon">Lincon</option>
+                                    <option value="Reinier">Reinier</option>
+                                    <option value="Vinicius Jr."> Vinicius Jr.</option>
+                                    <option value="Léo Duarte"> Léo Duarte</option>
+                                </select>
+
+
+
+
+                                <br> <br>
+                                <span> 7. Qual o jogo tem o recorde de público do campeonato brasileiro e quando
+                                    aconteceu ?<br><br>
+                                    <select name="Esolha" id="pergunta7">
+                                        <option value="Flamengo x Atlético MG / 1980"> Flamengo x Atlético MG / 1980
+                                        </option>
+                                        <option value="Flamengo x Fluminense / 2019"> Flamengo x Fluminense /
+                                            2019</option>
+                                        <option value="Flamengo x Corinthians / 1982"> Flamengo x Corinthians / 1982
+                                        </option>
+                                        <option value="Flamengo x Santos / 1983"> Flamengo x Santos / 1983
+                                        </option>
+                                    </select>
+
+
+
+
+
+                                    <br><br>
+                                    <span> 8. O Flamengo foi fundado em 1895.
+                                        Quando foi o primeiro jogo de futebol do Flamengo ?<br><br>
+                                        Contra quem ?
+                                        <select name="Esolha" id="pergunta8">
+                                            <option value="1895 / Botafogo">1895 / Botafogo</option>
+                                            <option value="1912 / Fluminense">1912 / Fluminense</option>
+                                            <option value="1910/ Fluminense">1910/ Fluminense</option>
+                                            <option value="1912 / Mangueira">1912 / Mangueira</option>
+                                        </select>
+
+                               
+                                        
+                                        
+                                        
+                                        <br><br>
+                                        <span> 9. Qual jogador tem mais jogos com a camisa do Flamengo ?<br><br>
+                                            <select name="Esolha" id="pergunta9">
+                                                <option value="Carlinhos">Carlinhos</option>
+                                                <option value="Júnior">Júnior</option>
+                                                <option value="Cantarelli">Cantarelli</option>
+                                                <option value="Paulo Henrique">Paulo Henrique</option>
+                                            </select>
+
+                                            
+                                            
+                                            
+                                            
+                                            <br><br>
+                                            <span> 10. Qual o treinador tem mais jogos dirigindo o Flamengo ?<br><br>
+                                                <select name="Esolha" id="pergunta10">
+                                                    <option value="Carlinhos">Carlinhos</option>
+                                                    <option value="Zagalo">Zagalo</option>
+                                                    <option value="Flávio Costa">Flávio Costa</option>
+                                                    <option value="Cláudio Coutinho">Cláudio Coutinho</option>
+                                                </select>
+                                                
+
+                                             <span>   Antes de mostrar seus resultados, responda o seguinte questionário (essa
+                                                pergunta é para coleta de dados e não há uma resposta correta)
+                                                Qual seu maior ídolo no Flamengo: <input id="input_idolo" type="text">
+
+
+                                                <button onclick="resultado()">Resultado</button>
+
+
+    </center>
 
 
 </body>
+
 </html>
 <script>
 
-// var listaPerguntas = [];
+    /* 1912,
+            Papagaio_vintém,
+            1979 / Atlético_Mineiro,
+            1971,
+            Moderato,
+            Lincon, ,
+            Flamengo_x_Santos / 1983,
+            1912 / Mangueira,
+            Júnior,
+            Flávio_Costa*/
 
-var listaCertas= [
-1912,
-Papagaio_vintém ,
-1979 / Atlético_Mineiro ,
-1971,
-Moderato,
-Lincon,,
-Flamengo_x_Santos  / 1983,
-1912 / Mangueira ,
-Júnior ,
-Flávio_Costa];
- 
- // var listaErradas = [];
-
-var listaRespostas = [];
+    var listaCertas = [];
+    var listaErros = [];
+    var listaRespostas = [];
 
 
+    function resultado() {
 
-function resultado(){
- var resposta = input_1resposta
+        var resposta1 = pergunta1.value;
+        var resposta2 = pergunta2.value;
+        var resposta3 = pergunta3.value;
+        var resposta4 = pergunta4.value;
+        var resposta5 = pergunta5.value;
+        var resposta6 = pergunta6.value;
+        var resposta7 = pergunta7.value;
+        var resposta8 = pergunta8.value;
+        var resposta9 = pergunta9.value;
+        var resposta10 = pergunta10.value;
 
+        if (resposta1 == 1912) {
+
+            listaRespostas.push(resposta1)
+            listaCertas.push(resposta1)
+
+        }
+        else {
+
+            listaRespostas.push(resposta1)
+            listaErros.push(resposta1)
+
+        }
+        if (resposta2 == 'Papagaio_vintém') {
+
+
+            listaRespostas.push(resposta2)
+            listaCertas.push(resposta2)
+
+        }
+        else {
+
+            listaRespostas.push(resposta2)
+            listaErros.push(resposta2)
+
+        }
+
+        if (resposta3 == '1979 / Atlético Mineiro' ) {
+
+listaRespostas.push(resposta3)
+listaCertas.push(resposta3)
 
 }
+else {
+
+listaRespostas.push(resposta3)
+listaErros.push(resposta3)
+
+}
+    }
 </script>

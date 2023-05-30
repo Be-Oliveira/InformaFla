@@ -58,7 +58,7 @@
                 <input id="input_senha" type="password" placeholder="****">
 
                 <br><br>
-                <button onclick="login()">Logar</button>
+                <button onclick="entrar()">Logar</button>
 
             </div>
             <div id="mensagem_cadastro"></div>
@@ -69,7 +69,6 @@
 
 </html>
 <script>
-    function login() {
         function entrar() {
            // aguardar();
 
@@ -78,16 +77,16 @@
             
            
 
-            if (emailVar == "" || senhaVar == "") {
+            if (email == "" || senha == "") {
                 cardErro.style.display = "block"
                 mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
               //  finalizarAguardar();
                 return false;
             }
-            else {
-                // setInterval(sumirMensagem, 5000)
-                            window.location = "C:\Users\beroc\Documents\web-data\web-data-viz\site\public\jogos.html";
-            }
+            // else {
+            //     // setInterval(sumirMensagem, 5000)
+            //                 window.location = "C:\Users\beroc\Documents\web-data\web-data-viz\site\public\jogos.html";
+            // }
 
             console.log("FORM LOGIN: ", email);
             console.log("FORM SENHA: ", senha);
@@ -141,5 +140,5 @@
         function sumirMensagem() {
             cardErro.style.display = "none"
         }
-    }
+    
 </script>
