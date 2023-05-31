@@ -64,8 +64,7 @@
     <br> <br>
     <h1>Bem-vindo ao Quiz do Mengão! </h1>
 
-    <h4>Aqui iremos testar seu conhecimento sobre o nosso clube, após o término poderá ver seus pontos e
-        sua colocação na nossa tabela de resultados. Boa sorte Rubro-Negro!</h4>
+    <h4>Aqui iremos testar seu conhecimento sobre o nosso clube, após o término poderá ver seus pontos, erros e acertos nos nossos gráficos de resultados. Boa sorte Rubro-Negro!</h4>
     <br> <br><br>
 
     <br>
@@ -162,8 +161,8 @@
 
                                     <br><br>
                                     <span> 8. O Flamengo foi fundado em 1895.
-                                        Quando foi o primeiro jogo de futebol do Flamengo ?<br><br>
-                                        Contra quem ?
+                                        Quando e contra quem foi o primeiro jogo de futebol do Flamengo ?<br><br>
+                                        
                                         <select name="Esolha" id="pergunta8">
                                             <option value="1895 / Botafogo">1895 / Botafogo</option>
                                             <option value="1912 / Fluminense">1912 / Fluminense</option>
@@ -197,12 +196,12 @@
                                                     <option value="Cláudio Coutinho">Cláudio Coutinho</option>
                                                 </select>
                                                 
-
+<br><br>
                                              <span>   Antes de mostrar seus resultados, responda o seguinte questionário (essa
                                                 pergunta é para coleta de dados e não há uma resposta correta)
-                                                Qual seu maior ídolo no Flamengo: <input id="input_idolo" type="text">
+                                                Qual seu maior ídolo no Flamengo? <input id="input_idolo" type="text">
 
-
+<br><br>
                                                 <button onclick="resultado()">Resultado</button>
 
 
@@ -220,7 +219,7 @@
 
 
     function resultado() {
-
+ 
         var resposta1 = pergunta1.value;
         var resposta2 = pergunta2.value;
         var resposta3 = pergunta3.value;
@@ -232,6 +231,7 @@
         var resposta9 = pergunta9.value;
         var resposta10 = pergunta10.value;
 
+        
         if (resposta1 == 1912) {
 
             listaRespostas.push(resposta1)
@@ -358,10 +358,10 @@ else {
 
 listaRespostas.push(resposta10)
 listaErros.push(resposta10)
-
 }
 
-div_mensagem.innerHTML = `Parabéns flamenguista!`
+ 
+div_mensagem.innerHTML = `<span style="color:red;">Parabéns flamenguista! Você acertou ${listaCertas.length} perguntas e errou ${listaErros.length} delas. Número da tentativa: ${contador}</span>`
 
     }
 </script>
