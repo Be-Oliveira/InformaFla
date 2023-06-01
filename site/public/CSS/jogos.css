@@ -49,3 +49,7 @@ select {
     border: 0;
 }
 
+p {
+    margin-left: 40px;
+}
+
