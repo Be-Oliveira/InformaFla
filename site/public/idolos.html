@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idolos</title>
+    <link rel="stylesheet" href="CSS/site.css">
+    <link rel="stylesheet" href="CSS/jogos.css">
+</head>
+
+<body>
+
+
+    <!-- Header -->
+
+    <div class="header">
+        <div class="container">
+            <div class="div_escudo">
+                <img src="https://imgsapp.df.superesportes.com.br/app/noticia_127116951798/2017/05/29/61813/20170529192244926000a.png"
+                    class="escudo">
+
+            </div>
+            <ul class="navBar">
+                <a href="index.html">
+                    <li>Início</li>
+                </a>
+                <a href="sobre.html">
+                    <li>Sobre o Clube</li>
+                </a>
+                <li>|</li>
+                <a href="cadastro.html">
+                    <li>Cadastro</li>
+                </a>
+                <a href="login.html">
+                    <li>Login</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <!-- Header-->
+
+    <!-- Header2-->
+    <center>
+        <ul class="navBar2">
+            <a href="jogos.html">
+                <li>Jogos</li>
+            </a>
+            <li>|</li>
+            <a href="dashboard.html">
+                <li>Gráficos</li>
+            </a>
+            <li>|</li>
+            <a href="idolos.html">
+                <li>Ídolos</li>
+            </a>
+
+        </ul>
+    </center>
+    <!-- Header2-->
+    <div id="div_mensagem"></div>
+
+    <h2>Gostaria de conhecer mais sobre seu maior ídolo?</h2>
+
+    <span> Insira-o novamente e mostraremos informações dele, será que você sabe tudo do seu craque favorito? </span>
+
+    <span> Nome: <select name="Esolha" id="input_idolo">
+            <option value="Gabigol">Gabigol</option>
+            <option value="Adriano">Adriano</option>
+            <option value="Zico">Zico</option>
+            <option value="Junior">Júnior</option>
+        </select>
+        <br>
+        <br>
+        <button onclick="mostrar()">Mostrar Ídolo</button>
+        <img style="width: 300px" id="img_sorteada"> <br><br>
+        <button onclick="informacoes()">Saiba mais sobre seu ídolo</button>
+        <h2>Monte seu time de ídolos!</h2>
+
+        <span>Escolha seu esquema tático</span>
+
+        <select name="Esolha" id="input_esquema">
+            <option value="4-3-3">4-3-3</option>
+            <option value="4-4-2">4-4-2</option>
+            <option value="4-5-1">3-4-3</option>
+            <option value="5-3-2">5-3-2</option>
+            <option value="3-4-3">3-4-3</option>
+            <option value="3-5-2">3-5-2</option>
+
+        </select>
+        <br>
+        <button style="width: 70px" onclick="escolher()">Escolher Esquema</button>
+        <br><br>
+
+        <span>Inserir jogador</span>
+        <input id="input_jogador" type="text">
+        <br>
+        <button style="width: 70px" onclick="inserir()">Inserir</button>
+        <br><br>
+        <button onclick="time()">Meu Time dos Sonhos</button>
+
+</body>
+
+</html>
+<script>
+
+    var listaImagensZico = ['https://s2.glbimg.com/qqWGqTo5mGyNsMLeIUxg_Rcjhu0=/0x0:622x350/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2019/m/N/v6oy8xShmXpR7KyZG8VA/zico-fla.jpg',
+        'https://th.bing.com/th/id/R.b8c4644f2f8fdd2f0a03755c4a98053e?rik=nvhAdIZz5WcExg&riu=http%3a%2f%2fcde.3.depor.pe%2fima%2f0%2f0%2f2%2f0%2f8%2f208280.jpg&ehk=89TQdhS9nPMaG0fFGs3MLMAjxcdlVHdw5ftXlIuK%2fT0%3d&risl=&pid=ImgRaw&r=0', 'https://i.pinimg.com/originals/79/e6/e4/79e6e49ae411ecaed7c42aaf5d1593f5.jpg', 'https://i.pinimg.com/736x/88/f9/d8/88f9d89afb2c0ae30d6752860888b1f2.jpg']
+    var listaImagensGabigol = ['https://th.bing.com/th/id/OIP.RXxH593CSxdw-gQ3Ya84AQHaE8?pid=ImgDet&rs=1', 'https://th.bing.com/th/id/OIP.mCFa-HeIVI_Hrzw1Wm9DjAHaE7?pid=ImgDet&rs=1', 'https://th.bing.com/th/id/OIP.6CeV-PnXNYltcF3zcg67TgHaE8?pid=ImgDet&rs=1', 'https://wallpapercave.com/wp/wp11373626.jpg'];
+    var listaImagensAdriano = ['https://th.bing.com/th/id/R.c22d990220425574412e78ca46444398?rik=XleUieTCJ40upg&riu=http%3a%2f%2fcolunadoflamengo.com%2fwp-content%2fuploads%2f2015%2f07%2fadriano-flamengo.jpg&ehk=1UoBoFyZFXN4zR%2fp8V4vD%2b3LzlTokE4sI3hzj6A9mXw%3d&risl=&pid=ImgRaw&r=0', 'https://th.bing.com/th/id/OIP.Po9VcvxPsF3qg_sAhc5OrAHaFE?pid=ImgDet&w=620&h=424&rs=1', 'https://th.bing.com/th/id/OIP.MPKg4qzsGiODqnOizuSbnwHaGe?pid=ImgDet&rs=1', 'https://www.lance.com.br/files/article_main/uploads/2018/12/31/5c2a54012a765.jpeg'];
+    var listaImagensJunior = ['https://th.bing.com/th/id/R.77eeb814d4719ae22d46efdc61ff95ac?rik=Rpuo6j%2fTCH7tDg&riu=http%3a%2f%2fimages.uncyc.org%2fpt%2fc%2fc2%2fJunior_Fim_de_carreira.jpg&ehk=WpKgGoUorgkb762psx0sfS3KzV7aVfumAGOypyeNRnY%3d&risl=&pid=ImgRaw&r=0', 'https://acontecimentosdodiablog.files.wordpress.com/2017/06/29-de-junho-e28093-1954-e28094-jc3banior-ex-futebolista-brasileiro.jpg', 'https://i.pinimg.com/originals/bc/a1/e7/bca1e765d99c4fa2ea22ee36ed71bd42.jpg', 'https://static-wp-tor15-prd.torcedores.com/wp-content/uploads/2019/03/flamengo-2.jpg'];
+
+    function mostrar() {
+        var idolo = input_idolo.value;
+
+
+        if (idolo == 'Zico') {
+
+            if (listaImagensZico.length > 0) {
+
+                var opcaoSorteada = parseInt(Math.random() * listaImagensZico.length)
+                img_sorteada.src = listaImagensZico[opcaoSorteada]
+                listaImagensZico.splice(opcaoSorteada, 1)
+            }
+            else {
+                div_mensagem.innerHTML = ` <span> Todas as imagens do Zico já foram mostradas </span>`
+            }
+        }
+
+        if (idolo == 'Adriano') {
+
+            if (listaImagensAdriano.length > 0) {
+                var opcaoSorteada = parseInt(Math.random() * listaImagensAdriano.length)
+                img_sorteada.src = listaImagensAdriano[opcaoSorteada]
+                listaImagensAdriano.splice(opcaoSorteada, 1)
+            }
+            else {
+                div_mensagem.innerHTML = ` <span> Todas as imagens do Adriano já foram mostradas </span>`
+            }
+        }
+
+        if (idolo == 'Gabigol') {
+
+            if (listaImagensGabigol.length > 0) {
+                var opcaoSorteada = parseInt(Math.random() * listaImagensGabigol.length)
+                img_sorteada.src = listaImagensGabigol[opcaoSorteada]
+                listaImagensGabigol.splice(opcaoSorteada, 1)
+            }
+            else {
+                div_mensagem.innerHTML = ` <span> Todas as imagens do Gabigol já foram mostradas </span>`
+            }
+        }
+
+        if (idolo == 'Junior') {
+
+            if (listaImagensJunior.length > 0) {
+                var opcaoSorteada = parseInt(Math.random() * listaImagensJunior.length)
+                img_sorteada.src = listaImagensJunior[opcaoSorteada]
+                listaImagensJunior.splice(opcaoSorteada, 1)
+            }
+            else {
+                div_mensagem.innerHTML = ` <span> Todas as imagens do Júnior já foram mostradas </span>`
+            }
+        }
+
+    }
+
+
+
+    function informacoes() {
+
+        var idolo = input_idolo.value;
+
+        if (idolo == 'Zico') {
+
+            div_mensagem.innerHTML = ` <br> <span> Arthur Antunes Coimbra (Rio de Janeiro, 3 de março de 1953), mais conhecido como Zico, é um ex-futebolista brasileiro que atuava como meio-campista, sendo considerado um dos melhores jogadores da história.
+            Notabilizou-se como o líder da vitoriosa trajetória do Flamengo nas décadas de 1970 e 1980, com ápice nas conquistas da Copa Libertadores da América e da Copa Intercontinental pela equipe carioca, além dos títulos do Campeonato Brasileiro de 1980, 1982, 1983 e da Copa União de 1987 (um dos módulos do Campeonato Brasileiro daquele ano) e também pela Seleção Brasileira nas Copas do Mundo de 1978, 1982 e 1986.
+            Mas mais que um exímio batedor de faltas, Zico apresentava em seu repertório futebolístico, dribles fáceis, excelente visão de jogo e uma inteligência acima do normal.
+     </span>       `
+        }
+
+        if (idolo == 'Adriano') {
+
+            div_mensagem.innerHTML = `  <br> <span> Adriano Leite Ribeiro (Rio de Janeiro, 17 de fevereiro de 1982), mais conhecido como Adriano Imperador é um ex-futebolista brasileiro que atuava como centroavante.
+    No Brasileirão de 2009, Adriano foi, junto a Dejan Petković e o treinador Andrade, o grande destaque do Flamengo na competição. Ao fim do torneio, o Fla conquistou o título brasileiro e o Imperador foi o artilheiro do Brasileirão.
+    Em 2010 atuou com Vágner Love, formando uma dupla que ficou conhecida como O Império do Amor. Adriano teve uma carreira envolvida de diversas polêmicas, tristezas, mas principalmente de paixão, apesar de escolhas profissionais que muitos julgam incorretas, pode-se dizer que o Imperador fez o que lhe deixaria mais feliz e marcou os corações de vários Flamenguistas.
+    </span>
+    `
+        }
+
+        if (idolo == 'Gabigol') {
+
+            div_mensagem.innerHTML = `  <br> <span> Gabriel Barbosa Almeida (São Bernardo do Campo, 30 de agosto de 1996), mais conhecido como Gabigol, é um futebolista brasileiro que atua como atacante.
+    Em 2019 foi emprestado ao Flamengo, onde teve uma das grandes temporadas de sua carreira: foi campeão do Campeonato Carioca, levantou o título do Campeonato Brasileiro sagrando-se artilheiro, com 25 gols, e ainda se destacou na Copa Libertadores, onde marcou dois gols na final contra o River Plate, conquistando a competição e também foi artilheiro, com 9 gols. Apenas esse ano já foi suficiente para se tornar um dos maiores ídolos da história do clube e criar uma identificação única com a torcida. O craque continua em atividade e segue brilhando com o manto rubro-negro.
+    </span>
+
+    `
+        }
+        if (idolo == 'Junior') {
+
+            div_mensagem.innerHTML = `  <br> <span> Leovegildo Lins Gama Júnior, também conhecido como Júnior, Maestro Júnior ou Júnior Capacete (João Pessoa, 29 de junho de 1954), é um ex-futebolista brasileiro que atuava como lateral-esquerdo. 
+    Como jogador, era ambidestro e polivalente, bom marcador e grande distribuidor de jogadas, independente da posição. A facilidade para jogar bem com as duas pernas o permitiu atuar como lateral-esquerdo, direito, volante e meio-campista. Jogador de extrema técnica e rara habilidade, tinha grande visão de jogo, precisão nos passes, e era ótimo cobrador de faltas e escanteios
+    Fez fama atuando pelo Flamengo, onde jogou 865 partidas, sendo o jogador que mais vezes vestiu a camisa rubro-negra. </span>
+    `
+        }
+    }
+
+    function escolher() {
+        var esquema = input_esquema.value
+        if (esquema == '4-3-3') {
+            div_mensagem.innerHTML = `<span>Insira nessa ordem: Goleiro, Lateral Direito, Zagueiro, Zagueiro, Lateral Esquerdo, Volante, Meio-Campo, Meio-Campo, Ponta Direita, Ponta Esquerda, Centroavante</span>`
+        }
+
+        if (esquema == '4-4-2') {
+            div_mensagem.innerHTML = `<span>Insira nessa ordem: Goleiro, Lateral Direito, Zagueiro, Zagueiro, Lateral Esquerdo, Meio-Campo, Meio-Campo, Meio-Campo, Meio-Campo,  Centroavante, Centroavante</span>`
+        }
+        if (esquema == '4-5-1') {
+            div_mensagem.innerHTML = `<span>Insira nessa ordem: Goleiro, Lateral Direito, Zagueiro, Zagueiro, Lateral Esquerdo, Meio-Campo, Meio-Campo, Meio-Campo, Meio-Campo, Meio-campo, Centroavante</span>`
+        }
+
+        if (esquema == '5-3-2') {
+            div_mensagem.innerHTML = `<span>Insira nessa ordem: Goleiro, Ala Direita, Zagueiro, Zagueiro, Zagueiro, Ala Esquerda, Meio-Campo, Meio-Campo, Meio-Campo, Centroavante, Centroavante</span>`
+        }
+
+
+        if (esquema == '3-4-3') {
+            div_mensagem.innerHTML = `<span>Insira nessa ordem: Goleiro, Zagueiro, Zagueiro, Zagueiro, Volante, Volante, Meio-Campo, Meio-Campo, Ponta Direita, Ponta Esquerda, Centroavante</span>`
+        }
+
+        if (esquema == '3-5-2') {
+            div_mensagem.innerHTML = `<span>Insira nessa ordem: Goleiro, Zagueiro, Zagueiro, Zagueiro, Volante, Volante, Meio-Campo, Meio-Campo, Meio-Campo, Centroavante</span>`
+        }
+    }
+    listaJogadores = [];
+
+    function inserir() {
+        var jogador = input_jogador.value;
+        if (listaJogadores.length <= 11) {
+            listaJogadores.push(jogador);
+        } else {
+            alert('Todos os 11 jogadores já foram inseridos')
+
+        }
+
+        div_mensagem.innerHTML = `<span> ${listaJogadores} </span>`
+
+      
+    }
+
+    function time() {
+        var esquema = input_esquema.value
+        if (esquema == '4-3-3') {
+            div_mensagem.innerHTML = ` <br> <span> Muito bem, agora vamos analisar seu time! Você fez uma escolha segura com o ${listaJogadores[0]} no gol, paredão! 
+        Sua linha defensiva é bem sólida e equilibrada, uma dulpa de zaga como ${listaJogadores[2]} e ${listaJogadores[3]} põem medo em qualquer atacante, além dos excelentes laterais ${listaJogadores[1]} e ${listaJogadores[4]} que vão tanto defender quanto auxiliar o ataque.
+       Partindo para o meio campo, temos um volante que segura o eixo do time e faz o esquema funcionar, o craque ${listaJogadores[5]}, como não podia faltar toda a qualidade dessa dupla de meios ${listaJogadores[6]} e ${listaJogadores[7]}, cruciais para a criação das jogadas, armando o time e acalmando o jogo.
+       Partindo para o ataque, temos o mais alto nível de jogadas coletivas e individuais, ${listaJogadores[8]} e ${listaJogadores[9]} dão armas ao time para atacar pelos lado do campo, jogadas de velocidade pelas pontas, conseguem infiltrar na área adversária seja com cruzamentos precisos ou rabsicando a defesa!
+       E como todo time de respeito deve ter um bom atacante, você escolheu uma máquina lá na frente! Um matador nato, artilheiro, cheira gol, dentro e fora da área ele domina e passa por seus marcadores como se fosse fácil, uma palavra o define: D-E-C-I-S-I-V-O!
+       Com esse time todo está claro quem iria ganhar os títulos da temporada, só há uma pergunta que não quer sair da cabeça dos rivais de jeito nenhum: Quem para esse Flamengo? </span>`
+        }
+
+        if (esquema == '4-4-2') {
+            div_mensagem.innerHTML = ` <br> <span> Muito bem, agora vamos analisar seu time! Você fez uma escolha segura com o ${listaJogadores[0]} no gol, paredão! 
+        Sua linha defensiva é bem sólida e equilibrada, uma dulpa de zaga como ${listaJogadores[2]} e ${listaJogadores[3]} põem medo em qualquer atacante, além dos excelentes laterais ${listaJogadores[1]} e ${listaJogadores[4]} que vão tanto defender quanto auxiliar o ataque.
+        O meio campo não podia ser melhor! Uma quarteto de meios de alta qualidade que vão dominar a posse para o seu time, ${listaJogadores[5]}, ${listaJogadores[6]},${listaJogadores[7]},${listaJogadores[8]}, uma palavra define esse meio que terá a bola a todo momento: excelência!
+        Com uma criação de jogadas de altíssimo nível e a posse da bola o jogo inteiro, oportunidades que não vão faltar para nossos atacantes, ${listaJogadores[9]} e ${listaJogadores[10]} vão fazer a defesa adversária tremer as pernas!
+         Posse, gols, solidez defensiva, esse time vai fazer um baile no campeonato, só há uma pergunta que não quer sair da cabeça dos rivais de jeito nenhum: Quem para esse Flamengo? </span>`
+        }
+
+        if (esquema == '4-5-1') {
+            div_mensagem.innerHTML = ` <br> <span> Muito bem, agora vamos analisar seu time! Você fez uma escolha segura com o ${listaJogadores[0]} no gol, paredão! 
+        Sua linha defensiva é bem sólida e equilibrada, uma dulpa de zaga como ${listaJogadores[2]} e ${listaJogadores[3]} põem medo em qualquer atacante, além dos excelentes laterais ${listaJogadores[1]} e ${listaJogadores[4]} que vão tanto defender quanto auxiliar o ataque.
+        O meio campo não podia ser melhor! Um quinteto de meios de alta qualidade que vão dominar a posse para o seu time, ${listaJogadores[5]}, ${listaJogadores[6]}, irão roubar todas as bolas e matar qualquer contra-ataque que o time adversário planeje, ${listaJogadores[7]},${listaJogadores[8]},${listaJogadores[9]}, a trinca de meios que funcionarão armando todas as jogadas, é um esquema tático e sólido que se encaixa em qualqer modelo de jogo do adversário, uma palavra define esse meio que terá a bola a todo momento: excelência!
+        Com uma criação de jogadas de altíssimo nível e a posse da bola o jogo inteiro, oportunidades que não vão faltar para nosso atacante, ${listaJogadores[10]} vai fazer a defesa adversária tremer as pernas!
+         A posse e qualidade no meio juntado à tática e funcionamento fará a vitória ser questão de tempo, só há uma pergunta que não quer sair da cabeça dos rivais de jeito nenhum: Quem para esse Flamengo? </span>`
+        }
+
+        if(esquema == '5-3-2') {
+
+            div_mensagem.innerHTML = ` <br> <span> Muito bem, agora vamos analisar seu time! Você fez uma escolha segura com o ${listaJogadores[0]} no gol, paredão! 
+Sua linha defensiva é bem sólida e equilibrada, uma trinca de zaga como ${listaJogadores[2]}, ${listaJogadores[3]} e ${listaJogadores[4]} põem medo em qualquer atacante, 
+        além dos excelentes alas ${listaJogadores[1]} e ${listaJogadores[5]} que subirão ao ataque o jogo inteiro e serão um problema para a defesa rival.
+        O meio campo não podia ser melhor! Uma trio de meios de alta qualidade que vão dominar a posse para o seu time, ${listaJogadores[6]},${listaJogadores[7]},${listaJogadores[8]}, cruciais para a criação das jogadas, armando o time e acalmando o jogo.
+        Com uma criação de jogadas de altíssimo nível e a posse da bola o jogo inteiro, oportunidades que não vão faltar para nossos atacantes, ${listaJogadores[9]} e ${listaJogadores[10]} vão fazer a defesa adversária tremer as pernas!
+         Posse, gols, solidez defensiva, esse time vai fazer um baile no campeonato, só há uma pergunta que não quer sair da cabeça dos rivais de jeito nenhum: Quem para esse Flamengo? </span>`
+        }
+        
+if(esquema == '3-4-3') {
+ 
+    div_mensagem.innerHTML = `<br> <span> Muito bem, agora vamos analisar seu time! Você fez uma escolha segura com o ${listaJogadores[0]} no gol, paredão! 
+ Sua linha defensiva é bem sólida e equilibrada, uma trinca de zaga como ${listaJogadores[1]}, ${listaJogadores[2]} e ${listaJogadores[3]} põem medo em qualquer atacante. 
+ O meio campo não podia ser melhor! Uma quarteto de meios de alta qualidade que vão dominar a posse para o seu time, ${listaJogadores[4]}, ${listaJogadores[5]},${listaJogadores[6]},${listaJogadores[7]}, uma palavra define esse meio que terá a bola a todo momento: excelência!
+ Partindo para o ataque, temos o mais alto nível de jogadas coletivas e individuais, ${listaJogadores[8]} e ${listaJogadores[9]} dão armas ao time para atacar pelos lado do campo, jogadas de velocidade pelas pontas, conseguem infiltrar na área adversária seja com cruzamentos precisos ou rabsicando a defesa!
+       E como todo time de respeito deve ter um bom atacante, você escolheu uma máquina lá na frente! Um matador nato, artilheiro, cheira gol, dentro e fora da área ele domina e passa por seus marcadores como se fosse fácil, uma palavra o define: D-E-C-I-S-I-V-O!
+        Letalidade é a palavra quedefine esse time, uma só jogada pode acabar com o jogo e sucumbir o adversário, só há uma pergunta que não quer sair da cabeça dos rivais de jeito nenhum: Quem para esse Flamengo? </span>`
+        
+}
+
+if(esquema == '3-5-2') {
+ 
+ div_mensagem.innerHTML = `<br> <span> Muito bem, agora vamos analisar seu time! Você fez uma escolha segura com o ${listaJogadores[0]} no gol, paredão! 
+Sua linha defensiva é bem sólida e equilibrada, uma trinca de zaga como ${listaJogadores[1]}, ${listaJogadores[2]} e ${listaJogadores[3]} põem medo em qualquer atacante.
+O meio campo não podia ser melhor! Um quinteto de meios de alta qualidade que vão dominar a posse para o seu time, ${listaJogadores[5]}, ${listaJogadores[6]}, irão roubar todas as bolas e matar qualquer contra-ataque que o time adversário planeje, ${listaJogadores[7]},${listaJogadores[8]},${listaJogadores[9]}, a trinca de meios que funcionarão armando todas as jogadas, é um esquema tático e sólido que se encaixa em qualqer modelo de jogo do adversário, uma palavra define esse meio que terá a bola a todo momento: excelência!
+ Com uma criação de jogadas de altíssimo nível e a posse da bola o jogo inteiro, oportunidades que não vão faltar para nossos atacantes, ${listaJogadores[9]} e ${listaJogadores[10]} vai fazer a defesa adversária tremer as pernas!
+ Posse, criação de oportunidades e gols, esse time vai fazer um baile no campeonato, só há uma pergunta que não quer sair da cabeça dos rivais de jeito nenhum: Quem para esse Flamengo? </span> `
+
+    }
+
+}
+</script>

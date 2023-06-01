@@ -45,7 +45,7 @@
     <!-- Header-->
 
     <!-- Header2-->
-
+<center>
     <ul class="navBar2">
         <a href="jogos.html">
             <li>Jogos</li>
@@ -54,15 +54,18 @@
         <a href="dashboard.html">
             <li>Gráficos</li>
         </a>
+        <li>|</li>
+        <a href="idolos.html">
+            <li>Ídolos</li>
+        </a>
     </ul>
 
-
+</center>
 
     <!-- Header2-->
 
     <!-- Perguntas quiz -->
     <div id="div_mensagem">
-
 
 
     </div>
@@ -205,15 +208,37 @@
                                                     </select>
 
                                                     <br><br>
-                                                    <span> Antes de mostrar seus resultados, responda o seguinte
-                                                        questionário (essa
-                                                        pergunta é para coleta de dados e não há uma resposta correta)
-                                                        Qual seu maior ídolo no Flamengo? <input id="input_idolo"
-                                                            type="text">
-
+                                                  
                                                         <br><br>
+                                                        <span> Agora que já testou seus conhecimentos sobre o Flamengo, antes de mostrar os resultados preencha as seguintes colunas sobre seu maior ídolo no clube desses destacados:
+                                                            <br><br>
+                                
+                                                        <span> Nome:  <select name="Esolha" id="input_idolo">
+                                                            <option value="Gabigol">Gabigol</option>
+                                                            <option value="Adriano">Adriano</option>
+                                                            <option value="Zico">Zico</option>
+                                                            <option value="Junior">Júnior</option>    </select>
+                                                            
+                                                           
+
+                                                            <span> Geração: <select name="Esolha" id="input_geracao">
+                                                                <option value="2019 e encanta até os dias de hoje">2019-2023</option>
+                                                                <option value="2009 e 2010">2009-2010</option>
+                                                                <option value="1978 até 1989">1978-1989</option>
+                                                                <option value="1974 até 1989">1974-1989</option>
+                                                            </select>
+                                                                
+
+                                                                <span> Posição:  <select name="Esolha" id="input_posicao">
+                                                                    <option value="atacante">Atacante</option>
+                                                                    <option value="meio">Meio-Campista</option>
+                                                                    <option value="defensor">Defensor</option>
+                                                                </select>
+                                                
                                                       
-                                                        <button onclick="resultado()">Resultado</button>
+                                            <br><br>
+                                                     
+                                                           <button onclick="resultado()">Resultado</button>
 
 
         </center>
@@ -229,13 +254,11 @@
     var listaCertas = [];
     var listaErros = [];
     var listaRespostas = [];
-    var listaImagensZico = ['https://s2.glbimg.com/qqWGqTo5mGyNsMLeIUxg_Rcjhu0=/0x0:622x350/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2019/m/N/v6oy8xShmXpR7KyZG8VA/zico-fla.jpg',
-        'https://th.bing.com/th/id/R.b8c4644f2f8fdd2f0a03755c4a98053e?rik=nvhAdIZz5WcExg&riu=http%3a%2f%2fcde.3.depor.pe%2fima%2f0%2f0%2f2%2f0%2f8%2f208280.jpg&ehk=89TQdhS9nPMaG0fFGs3MLMAjxcdlVHdw5ftXlIuK%2fT0%3d&risl=&pid=ImgRaw&r=0', 'https://i.pinimg.com/originals/79/e6/e4/79e6e49ae411ecaed7c42aaf5d1593f5.jpg', 'https://i.pinimg.com/736x/88/f9/d8/88f9d89afb2c0ae30d6752860888b1f2.jpg']
-    var listaImagensGabi = ['https://th.bing.com/th/id/OIP.RXxH593CSxdw-gQ3Ya84AQHaE8?pid=ImgDet&rs=1', 'https://th.bing.com/th/id/OIP.mCFa-HeIVI_Hrzw1Wm9DjAHaE7?pid=ImgDet&rs=1', 'https://th.bing.com/th/id/OIP.6CeV-PnXNYltcF3zcg67TgHaE8?pid=ImgDet&rs=1', 'https://wallpapercave.com/wp/wp11373626.jpg'];
-    var listaImagensAdriano = ['https://th.bing.com/th/id/R.c22d990220425574412e78ca46444398?rik=XleUieTCJ40upg&riu=http%3a%2f%2fcolunadoflamengo.com%2fwp-content%2fuploads%2f2015%2f07%2fadriano-flamengo.jpg&ehk=1UoBoFyZFXN4zR%2fp8V4vD%2b3LzlTokE4sI3hzj6A9mXw%3d&risl=&pid=ImgRaw&r=0', 'https://th.bing.com/th/id/OIP.Po9VcvxPsF3qg_sAhc5OrAHaFE?pid=ImgDet&w=620&h=424&rs=1', 'https://th.bing.com/th/id/OIP.MPKg4qzsGiODqnOizuSbnwHaGe?pid=ImgDet&rs=1', 'https://www.lance.com.br/files/article_main/uploads/2018/12/31/5c2a54012a765.jpeg'];
-
+  
     function resultado() {
         var idolo = input_idolo.value;
+        var geracao = input_geracao.value;
+        var posicao = input_posicao.value;
         var resposta1 = pergunta1.value;
         var resposta2 = pergunta2.value;
         var resposta3 = pergunta3.value;
@@ -246,6 +269,9 @@
         var resposta8 = pergunta8.value;
         var resposta9 = pergunta9.value;
         var resposta10 = pergunta10.value;
+
+
+
 
 
         if (resposta1 == 1912) {
@@ -382,13 +408,11 @@
         div_mensagem.innerHTML = `<center> <br><br> <h1 style= "color:red"> Parabéns flamenguista!</h1>
  
  <span style="color:red;">Resultados: Você acertou ${listaCertas.length} perguntas e errou ${listaErros.length} delas. <br> <br>
- Vimos também que seu maior ídolo é o ${idolo}, obrigado por nos contar tentaremos trazer mais informações dele para nosso site.
+ Vimos também que seu maior ídolo é o ${idolo}, um exímio ${posicao} que encantou toda geração de ${geracao}, obrigado por nos contar um pouco das suas preferências, tentaremos trazer mais informações dele para nosso site.
  Você pode ver esses dados com mais clareza na nossa página de gráficos, que mostra resultados do quiz e popularidade dos ídolos escolhidos por vocês!
 </span>  </center> 
  `
     }
-
-
 
 
 </script>
