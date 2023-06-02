@@ -48,7 +48,7 @@
             </div>
         </div>
         <h1>Login</h1>
-        <div class="container">
+        <div id="container">
             <div class="cardCadastro">
 
                 <p>Email</p>
@@ -64,6 +64,7 @@
             <div id="mensagem_cadastro"></div>
         </div>
     </div>
+    <!-- <div id="musica"></div> -->
     <!-- Cadastro -->
 </body>
 
@@ -141,4 +142,11 @@
             cardErro.style.display = "none"
         }
     
+        function tocar() {
+        
+        container.innerHTML += ` <audio src="cadastro.mp3" autoplay></audio>`
+        audio.style.display = `none;`
+        
+
+    }
 </script>

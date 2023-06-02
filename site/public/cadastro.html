@@ -48,7 +48,7 @@
             </div>
         </div>
         <h1>CADASTRE-SE</h1>
-        <div class="container">
+        <div id="container">
             <div class="cardCadastro">
                 <p>Nickname</p>
                 <input id="input_nick" type="text" placeholder="Digite seu nickname">
@@ -62,12 +62,14 @@
                 <p>Confirmar sua Senha</p>
                 <input id="input_confirmacao_senha" type="password" placeholder="****">
                 <br><br>
-                <button onclick="cadastrar()">Cadastrar</button>
+                <button onclick="tocar();cadastrar()">Cadastrar</button>
 
             </div>
                 <div id="mensagem_cadastro"></div>
             </div>
         </div>
+      
+      
         <!-- Cadastro -->
 </body>
 
@@ -182,4 +184,10 @@
     function sumirMensagem() {
         cardErro.style.display = "none"
     } 
+
+    function tocar() {
+        
+        container.innerHTML += ` <audio src="cadastro.mp3" autoplay></audio>`
+        audio.style.display = `none;`
+    }
 </script>

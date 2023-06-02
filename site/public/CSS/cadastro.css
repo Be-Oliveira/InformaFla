@@ -1,4 +1,4 @@
-.Cadastro .container{
+.Cadastro #container{
     background-color:black;
     width: 500px;
     height: fit-content;
@@ -9,19 +9,21 @@
     justify-content: center; 
     text-align: center;
     padding: 20px;
+    margin-left: 460px;
 }
 
-.Login .container{
+.Login #container{
     background-color: black;
     width: 500px;
     height: fit-content;
     margin-bottom: 40px;
     border-radius: 30px;
     display: flex;
-    /* align-items: center;  */
+     align-items: center;  
     justify-content: center; 
     text-align: center;
     padding: 20px;
+    margin-left:390px;
 }
 
 .Cadastro{
@@ -35,7 +37,11 @@
 
 .Login{
     text-align: center;
-}
+    background-position: 100% 100%;
+    background-size: cover;
+    width: 100%;
+    height: 700px;
+  }
 
 input{
     border-radius: 5px 5px 5px 5px;
@@ -89,4 +95,8 @@ button:active {
 .card_erro #mensagem_cadastro{
   font-weight: 500;
   font-size: 20px;
+}
+
+audio{
+    display: none;
 }
