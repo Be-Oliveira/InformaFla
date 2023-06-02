@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Idolos</title>
     <link rel="stylesheet" href="CSS/site.css">
-    <link rel="stylesheet" href="CSS/jogos.css">
+    <link rel="stylesheet" href="CSS/idolo.css">
 </head>
 
 <body>
@@ -89,7 +89,7 @@
             <option value="3-5-2">3-5-2</option>
 
         </select>
-        <br>
+        <br> <br>
         <button style="width: 70px" onclick="escolher()">Escolher Esquema</button>
         <br><br>
 
@@ -252,9 +252,9 @@
         var esquema = input_esquema.value
         if (esquema == '4-3-3') {
             div_mensagem.innerHTML = ` <br> <span> Muito bem, agora vamos analisar seu time! Você fez uma escolha segura com o ${listaJogadores[0]} no gol, paredão! 
-        Sua linha defensiva é bem sólida e equilibrada, uma dulpa de zaga como ${listaJogadores[2]} e ${listaJogadores[3]} põem medo em qualquer atacante, além dos excelentes laterais ${listaJogadores[1]} e ${listaJogadores[4]} que vão tanto defender quanto auxiliar o ataque.
+        Sua linha defensiva é bem sólida e equilibrada, uma dulpa de zaga como ${listaJogadores[2]} e ${listaJogadores[3]} põem medo em qualquer atacante, além dos excelentes laterais ${listaJogadores[1]} e ${listaJogadores[4]} que vão tanto defender quanto auxiliar o ataque. <br>
        Partindo para o meio campo, temos um volante que segura o eixo do time e faz o esquema funcionar, o craque ${listaJogadores[5]}, como não podia faltar toda a qualidade dessa dupla de meios ${listaJogadores[6]} e ${listaJogadores[7]}, cruciais para a criação das jogadas, armando o time e acalmando o jogo.
-       Partindo para o ataque, temos o mais alto nível de jogadas coletivas e individuais, ${listaJogadores[8]} e ${listaJogadores[9]} dão armas ao time para atacar pelos lado do campo, jogadas de velocidade pelas pontas, conseguem infiltrar na área adversária seja com cruzamentos precisos ou rabsicando a defesa!
+       <br>  Partindo para o ataque, temos o mais alto nível de jogadas coletivas e individuais, ${listaJogadores[8]} e ${listaJogadores[9]} dão armas ao time para atacar pelos lado do campo, jogadas de velocidade pelas pontas, conseguem infiltrar na área adversária seja com cruzamentos precisos ou rabsicando a defesa!
        E como todo time de respeito deve ter um bom atacante, você escolheu uma máquina lá na frente! Um matador nato, artilheiro, cheira gol, dentro e fora da área ele domina e passa por seus marcadores como se fosse fácil, uma palavra o define: D-E-C-I-S-I-V-O!
        Com esse time todo está claro quem iria ganhar os títulos da temporada, só há uma pergunta que não quer sair da cabeça dos rivais de jeito nenhum: Quem para esse Flamengo? </span>`
         }
