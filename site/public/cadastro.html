@@ -63,9 +63,9 @@
                 <input id="input_confirmacao_senha" type="password" placeholder="****">
                 <br><br>
 
-                <span> Agora que já testou seus conhecimentos sobre o Flamengo, antes de mostrar os resultados preencha
-                    as seguintes colunas,dessas destacadas, sobre o nome do seu maior ídolo no clube, a geração que mais
-                    te marcou e a posição que mais tem interesse em conhecer mais:
+                <span> Para finalizar seu cadastro preencha
+                    as seguintes colunas,sobre o nome do seu maior ídolo no clube, a geração que mais
+                    te marcou e a posição que tem interesse em conhecer mais:
                     <br><br>
 
                     <span> Nome: <select name="Esolha" id="input_idolo">
@@ -91,7 +91,7 @@
                                     <option value="defensor">Defensor</option>
                                 </select>
 
-                                <button onclick="cadastrar()">Cadastrar</button>
+                                <button onclick= "cadastrar()">Cadastrar</button>
 
             </div>
             <div id="mensagem_cadastro"></div>
@@ -222,9 +222,4 @@
         cardErro.style.display = "none"
     }
 
-    function tocar() {
-
-        container.innerHTML += ` <audio src="cadastro.mp3" autoplay></audio>`
-        audio.style.display = `none;`
-    }
 </script>

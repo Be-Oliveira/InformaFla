@@ -48,16 +48,21 @@
 <center>
     <ul class="navBar2">
         <a href="jogos.html">
-            <li>Jogos</li>
+            <li>Quiz</li>
+        </a>
+        <li>|</li>
+        <a href="idolos.html">
+            <li>Ídolos</li>
         </a>
         <li>|</li>
         <a href="dashboard.html">
             <li>Gráficos</li>
         </a>
         <li>|</li>
-        <a href="idolos.html">
-            <li>Ídolos</li>
+        <a href="camisa.html">
+            <li>Camisa</li>
         </a>
+
     </ul>
 
 </center>
@@ -73,8 +78,8 @@
         <br> <br>
         <h1>Bem-vindo ao Quiz do Mengão! </h1>
 
-        <h4>Aqui iremos testar seu conhecimento sobre o nosso clube, após o término poderá ver seus pontos, erros e
-            acertos nos nossos gráficos de resultados. Boa sorte Rubro-Negro!</h4>
+        <h4>Aqui iremos testar seu conhecimento sobre o nosso clube, após o término poderá ver seus erros e
+            acertos no nosso gabarito. Boa sorte Rubro-Negro!</h4>
         <br> <br><br>
 
         <br>
@@ -210,35 +215,12 @@
                                                     <br><br>
                                                   
                                                         <br><br>
-                                                        <span> Agora que já testou seus conhecimentos sobre o Flamengo, antes de mostrar os resultados preencha as seguintes colunas,dessas destacadas, sobre o nome do seu maior ídolo no clube, a geração que mais te marcou e a posição que mais tem interesse em conhecer mais:
-                                                            <br><br>
-                                
-                                                        <span> Nome:  <select name="Esolha" id="input_idolo">
-                                                            <option value="Gabigol">Gabigol</option>
-                                                            <option value="Adriano">Adriano</option>
-                                                            <option value="Zico">Zico</option>
-                                                            <option value="Junior">Júnior</option>    </select>
-                                                            
-                                                           
-
-                                                            <span> Geração: <select name="Esolha" id="input_geracao">
-                                                                <option value="2019, que encanta até os dias de hoje">2019-2023</option>
-                                                                <option value="2009 e 2010">2009-2010</option>
-                                                                <option value="1978 até 1989">1978-1989</option>
-                                                                <option value="1974 até 1989">1974-1989</option>
-                                                            </select>
-                                                                
-
-                                                                <span> Posição:  <select name="Esolha" id="input_posicao">
-                                                                    <option value="atacante">Atacante</option>
-                                                                    <option value="meio">Meio-Campista</option>
-                                                                    <option value="defensor">Defensor</option>
-                                                                </select>
+                                                       
                                                 
                                                       
-                                            <br><br>
+                            
                                                      
-                                                           <button onclick="resultado()">Resultado</button>
+                                                           <button style="margin-right: 100px;" onclick="resultado()">Resultado</button>
 
 
         </center>
@@ -256,9 +238,7 @@
     var listaRespostas = [];
   
     function resultado() {
-        var idolo = input_idolo.value;
-        var geracao = input_geracao.value;
-        var posicao = input_posicao.value;
+      
         var resposta1 = pergunta1.value;
         var resposta2 = pergunta2.value;
         var resposta3 = pergunta3.value;
@@ -409,62 +389,25 @@
         div_mensagem.innerHTML = `<center> <br><br> <h1 style= "color:red"> Parabéns flamenguista!</h1>
  
  <span style="color:red;">Resultados: Você acertou ${listaCertas.length} perguntas e errou ${listaErros.length} delas. <br> <br>
- Vimos também que seu maior ídolo é o ${idolo}, um craque de bola, percebemos que você foi encantado pela geração de ${geracao}, um ótimo time que conseguiu tranformar o futebol em arte e somava tática, qualidade e emoção nas partidas. A posição que mais te interessa é a de ${posicao}, peça fundamental para o time,
-obrigado por nos contar um pouco das suas preferências, tentaremos trazer mais informações do seu jogador escolhido, dessa geração marcante e sobre mais jogadores do flamengo que atuaram como ${posicao} para nosso site.
- Você pode ver esses dados com mais clareza na nossa página de gráficos, que mostra resultados do quiz e popularidade dos ídolos escolhidos por vocês!
+ Veja o gabarito: <br> <br>
+ 1 - 1912 <br> <br>
+ 2 - Papagaio vintém <br> <br>
+3 - 1979 / Atlético Mineiro <br> <br>
+4 - 1971 <br> <br>
+5- Moderato <br> <br>
+6 - Lincon <br> <br>
+7 - Flamengo x Santos  / 1983 <br> <br>
+8 - 1912 / Mangueira <br> <br>
+9 - Júnior <br> <br>
+10 - Flávio Costa <br> <br>
+
+
+ 
 </span>  </center> 
+
  `
     }
 
 
-    function bd (){
-        
-        var idolo = input_idolo.value;
-        var geracao = input_geracao.value;
-        var posicao = input_posicao.value;
-
-        var idUsuario = sessionStorage.ID_USUARIO
-
-        if (idUsuario != '' && idUsuario != undefined) {
-    fetch(`/usuarios/cadastraridolo/${idUsuario}`, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            // crie um atributo que recebe o valor recuperado aqui
-            // Agora vá para o arquivo routes/usuario.js
-            idoloServer: idolo,
-            geracaoServer: geracao,
-            posicaoServer: posicao
-
-        })
-    }).then(function (resposta) {
-
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-            cardErro.style.display = "block";
-
-            mensagem_erro.innerHTML = "";
-
-            limparFormulario();
-            finalizarAguardar();
-        } else {
-            throw ("Houve um erro ao tentar realizar o cadastro!");
-        }
-    }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        // finalizarAguardar();
-    });
-} else {
-    alert("Erro! Sem ID")
-}
-
-return false;
-}
-
-
-    
 
 </script>

@@ -51,10 +51,23 @@ function cadastraridolo(nome, geracao, posicao) {
     return database.executar(instrucao);
 }
 
+function cadastrarcamisa(cor1, cor2, detalhes) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrarcamisa():", cor1, cor2, detalhes);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO camisa (cor1, cor2, detalhes, fkUsuario) VALUES ('${cor1}', '${cor2}', '${detalhes}', '${nickname}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     cadastraridolo,
+    cadastrarcamisa,
     listar,
 };
 

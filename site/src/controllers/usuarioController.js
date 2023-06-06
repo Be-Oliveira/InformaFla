@@ -141,10 +141,46 @@ function cadastraridolo(req, res) {
     }
 }
 
+function cadastrarcamisa(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var cor1 = req.body.cor1Server;
+    var cor2 = req.body.cor2Server;
+    var detalhes = req.body.detalhesServer;
+    
+
+    // Faça as validações dos valores
+    if (cor1 == undefined) {
+        res.status(400).send("Sua cor primária está undefined!");
+    } else if (cor2 == undefined) {
+        res.status(400).send("Sua cor secundária está undefined!");
+    } else if (detalhes == undefined) {
+        res.status(400).send("Seus detalhes e estilos estão undefined!");
+    } else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastrarcamisa(cor1, cor2, detalhes)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
 module.exports = {
     entrar,
     cadastrar,
     cadastraridolo,
+    cadastrarcamisa,
     listar,
     testar
 }

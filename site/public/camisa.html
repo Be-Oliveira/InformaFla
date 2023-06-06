@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camisa</title>
+    <link rel="stylesheet" href="CSS/site.css">
+    <link rel="stylesheet" href="CSS/camisa.css">
+</head>
+
+<body>
+    <!-- Header -->
+
+    <div class="header">
+        <div class="container">
+            <div class="div_escudo">
+                <img src="https://imgsapp.df.superesportes.com.br/app/noticia_127116951798/2017/05/29/61813/20170529192244926000a.png"
+                    class="escudo">
+
+            </div>
+            <ul class="navBar">
+                <a href="index.html">
+                    <li>Início</li>
+                </a>
+                <a href="sobre.html">
+                    <li>Sobre o Clube</li>
+                </a>
+                <li>|</li>
+                <a href="cadastro.html">
+                    <li>Cadastro</li>
+                </a>
+                <a href="login.html">
+                    <li>Login</li>
+                </a>
+            </ul>
+        </div>
+    </div>
+    <!-- Header-->
+
+    <!-- Header2-->
+    <center>
+        <ul class="navBar2">
+            <a href="jogos.html">
+                <li>Quiz</li>
+            </a>
+            <li>|</li>
+            <a href="idolos.html">
+                <li>Ídolos</li>
+            </a>
+            <li>|</li>
+            <a href="dashboard.html">
+                <li>Gráficos</li>
+            </a>
+            <li>|</li>
+            <a href="camisa.html">
+                <li>Camisa</li>
+            </a>
+
+        </ul>
+    </center>
+    <!-- Header2-->
+    <div id="div_mensagem"></div>
+
+
+    <h1>Crie o seu manto rubro-negro!</h1>
+
+    <h4>Personalize sua camisa do modo que achar melhor, quem sabe um dia o Flamengo não curte a ideia e decide aplicar.
+    </h4>
+    <center>
+        <br> <span> Insira a cor primária: <input id="input_cor1" type="text">
+            <br> Insira a cor secundária: <input id="input_cor2" type="text">
+            <br>
+            Insira os detalhes da camisa: <input id="input_detalhes" type="text"> </span>
+
+        <br><br>
+        <button onclick="cadastrarcamisa()">Enviar ideia de Camisa</button>
+    </center>
+</body>
+
+</html>
+<script>
+
+
+
+
+
+    function cadastrarcamisa() {
+
+        var cor1 = input_cor1.value;
+        var cor2 = input_cor2.value;
+        var detalhes = input_detalhes.value;
+
+
+        var idCamisa = sessionStorage.ID_USUARIO
+
+        if (idCamisa != '' && idCamisa != undefined) {
+            fetch(`/usuarios/cadastrarcamisa/idCamisa`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    cor1Server: cor1,
+                    cor2Server: cor2,
+                    detalhesServer: detalhes
+
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
+
+                    mensagem_erro.innerHTML = "";
+
+                    limparFormulario();
+                    finalizarAguardar();
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+        } else {
+            alert("Erro! Sem ID")
+        }
+
+        return false;
+
+    }
+
+
+
+
+
+</script>

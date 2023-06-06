@@ -20,6 +20,10 @@ router.post("/cadastraridolo/:idUsuario", function (req, res) {
     usuarioController.cadastraridolo(req, res);
 })
 
+router.post("/cadastrarcamisa/:idCamisa", function (req, res) {
+    usuarioController.cadastrarcamisa(req, res);
+})
+
 router.post("/autenticar", function (req, res) {
     usuarioController.entrar(req, res);
 });
