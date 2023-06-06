@@ -274,6 +274,7 @@
 
 
 
+
         if (resposta1 == 1912) {
 
             listaRespostas.push(resposta1)
@@ -415,5 +416,55 @@ obrigado por nos contar um pouco das suas preferências, tentaremos trazer mais 
  `
     }
 
+
+    function bd (){
+        
+        var idolo = input_idolo.value;
+        var geracao = input_geracao.value;
+        var posicao = input_posicao.value;
+
+        var idUsuario = sessionStorage.ID_USUARIO
+
+        if (idUsuario != '' && idUsuario != undefined) {
+    fetch(`/usuarios/cadastraridolo/${idUsuario}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            // crie um atributo que recebe o valor recuperado aqui
+            // Agora vá para o arquivo routes/usuario.js
+            idoloServer: idolo,
+            geracaoServer: geracao,
+            posicaoServer: posicao
+
+        })
+    }).then(function (resposta) {
+
+        console.log("resposta: ", resposta);
+
+        if (resposta.ok) {
+            cardErro.style.display = "block";
+
+            mensagem_erro.innerHTML = "";
+
+            limparFormulario();
+            finalizarAguardar();
+        } else {
+            throw ("Houve um erro ao tentar realizar o cadastro!");
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        // finalizarAguardar();
+    });
+} else {
+    alert("Erro! Sem ID")
+}
+
+return false;
+}
+
+
+    
 
 </script>

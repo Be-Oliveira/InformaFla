@@ -66,7 +66,9 @@ function cadastrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
     var confirmacao_senha = req.body.confirmacaoSenhaServer;
-
+    var idolo = req.body.idoloServer;
+    var geracao = req.body.geracaoServer;
+    var posicao = req.body.posicaoServer;
 
     // Faça as validações dos valores
     if (nickname == undefined) {
@@ -77,10 +79,51 @@ function cadastrar(req, res) {
         res.status(400).send("Sua senha está undefined!");
     } else if (confirmacao_senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
+    } else if (idolo == undefined) {
+        res.status(400).send("Seu idolo está undefined!");
+    } else if (geracao == undefined) {
+        res.status(400).send("Seu geracao está undefined!");
+    } else if (posicao == undefined) {
+        res.status(400).send("Sua posicao está undefined!");
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nickname, email, senha,confirmacao_senha)
+        usuarioModel.cadastrar(nickname, email, senha,confirmacao_senha, idolo,geracao,posicao)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function cadastraridolo(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var idolo = req.body.idoloServer;
+    var geracao = req.body.geracaoServer;
+    var posicao = req.body.posicaoServer;
+    
+
+    // Faça as validações dos valores
+    if (idolo == undefined) {
+        res.status(400).send("Seu idolo está undefined!");
+    } else if (geracao == undefined) {
+        res.status(400).send("Seu geracao está undefined!");
+    } else if (posicao == undefined) {
+        res.status(400).send("Sua posicao está undefined!");
+    } else {
+        
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.cadastraridolo(nickname, email, senha,confirmacao_senha)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -101,6 +144,7 @@ function cadastrar(req, res) {
 module.exports = {
     entrar,
     cadastrar,
+    cadastraridolo,
     listar,
     testar
 }

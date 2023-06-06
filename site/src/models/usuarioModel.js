@@ -19,13 +19,33 @@ function entrar(email, senha) {
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucao
-function cadastrar(nickname, email, senha,confirmacaoSenha) {
+function cadastrar(nickname, email, senha,confirmacaoSenha, idolo,geracao,posicao) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nickname, email, senha,confirmacaoSenha);
     
     // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
     //  e na ordem de inserção dos dados.
-    var instrucao = `
+    
+    var instrucao1 = `
         INSERT INTO usuario (nickname, email, senha,confirmacaoSenha) VALUES ('${nickname}', '${email}', '${senha}', '${confirmacaoSenha}');
+    `;
+    var instrucao2 = `
+        INSERT INTO idolos (Nome, Geração, Posição, fkUsuario) VALUES ('${idolo}', '${geracao}', '${posicao}', '${nickname}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao1 + instrucao2);
+     database.executar(instrucao1);
+    return database.executar(instrucao2);
+}
+
+function cadastraridolo(nome, geracao, posicao) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, geracao, posicao);
+    
+    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
+    //  e na ordem de inserção dos dados.
+    var instrucao = `
+        INSERT INTO usuario (nome, email, senha,confirmacaoSenha) VALUES ('${nickname}', '${email}', '${senha}', '${confirmacaoSenha}');
+    `;
+    var instrucao = `
+        UPDATE TABLE usuario SET FKIDOLO =  ALGUMA FORM DDE DESCORIRI ID???? '${confirmacaoSenha}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -34,5 +54,7 @@ function cadastrar(nickname, email, senha,confirmacaoSenha) {
 module.exports = {
     entrar,
     cadastrar,
+    cadastraridolo,
     listar,
 };
+

@@ -62,15 +62,44 @@
                 <p>Confirmar sua Senha</p>
                 <input id="input_confirmacao_senha" type="password" placeholder="****">
                 <br><br>
-                <button onclick="tocar();cadastrar()">Cadastrar</button>
+
+                <span> Agora que já testou seus conhecimentos sobre o Flamengo, antes de mostrar os resultados preencha
+                    as seguintes colunas,dessas destacadas, sobre o nome do seu maior ídolo no clube, a geração que mais
+                    te marcou e a posição que mais tem interesse em conhecer mais:
+                    <br><br>
+
+                    <span> Nome: <select name="Esolha" id="input_idolo">
+                            <option value="Gabigol">Gabigol</option>
+                            <option value="Adriano">Adriano</option>
+                            <option value="Zico">Zico</option>
+                            <option value="Junior">Júnior</option>
+                        </select>
+
+
+
+                        <span> Geração: <select name="Esolha" id="input_geracao">
+                                <option value="2019, que encanta até os dias de hoje">2019-2023</option>
+                                <option value="2009 e 2010">2009-2010</option>
+                                <option value="1978 até 1989">1978-1989</option>
+                                <option value="1974 até 1989">1974-1989</option>
+                            </select>
+
+
+                            <span> Posição: <select name="Esolha" id="input_posicao">
+                                    <option value="atacante">Atacante</option>
+                                    <option value="meio">Meio-Campista</option>
+                                    <option value="defensor">Defensor</option>
+                                </select>
+
+                                <button onclick="cadastrar()">Cadastrar</button>
 
             </div>
-                <div id="mensagem_cadastro"></div>
-            </div>
+            <div id="mensagem_cadastro"></div>
         </div>
-      
-      
-        <!-- Cadastro -->
+    </div>
+
+
+    <!-- Cadastro -->
 </body>
 
 </html>
@@ -82,22 +111,27 @@
         var email = input_email.value;
         var senha = input_senha.value;
         var confirmacaoSenha = input_confirmacao_senha.value;
+        var idolo = input_idolo.value;
+        var geracao = input_geracao.value;
+        var posicao = input_posicao.value;
 
-           
+        var idUsuario = sessionStorage.ID_USUARIO
+
+
 
         if ((email.search("@") == -1) && (email.search(".com") == -1)) {
             cardErro.style.display = "block"
             mensagem_cadastro.innerHTML = "(O Email deve conter um @ e .com)";
-//  finalizarAguardar();
+            //  finalizarAguardar();
             return false;
         } else {
             setInterval(sumirMensagem, 5000)
         }
-        
+
         if (email.search("@") == -1) {
             cardErro.style.display = "block"
             mensagem_cadastro.innerHTML = "(O Email deve conter um @)";
-         //   finalizarAguardar();
+            //   finalizarAguardar();
             return false;
         } else {
             setInterval(sumirMensagem, 5000)
@@ -105,8 +139,8 @@
 
         if (email.search(".com") == -1) {
             cardErro.style.display = "block"
-           mensagem_cadastro.innerHTML = "(O Email deve conter um .com)";
-        //    finalizarAguardar();
+            mensagem_cadastro.innerHTML = "(O Email deve conter um .com)";
+            //    finalizarAguardar();
             return false;
         } else {
             setInterval(sumirMensagem, 5000)
@@ -116,7 +150,7 @@
             cardErro.style.display = "block"
             mensagem_cadastro.innerHTML = "(Senha tem que ter 8 caracteres)";
 
-          //  finalizarAguardar();
+            //  finalizarAguardar();
             return false;
         } else {
             setInterval(sumirMensagem, 5000)
@@ -126,7 +160,7 @@
             cardErro.style.display = "block"
             mensagem_cadastro.innerHTML = "(Confirmar senha está diferente de senha)";
 
-          //  finalizarAguardar();
+            //  finalizarAguardar();
             return false;
         } else {
             setInterval(sumirMensagem, 5000)
@@ -136,14 +170,14 @@
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
 
-          //  finalizarAguardar();
+            //  finalizarAguardar();
             return false;
         }
         else {
             setInterval(sumirMensagem, 5000)
         }
 
-    
+
         fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
@@ -153,7 +187,10 @@
                 nickServer: nickname,
                 emailServer: email,
                 senhaServer: senha,
-                confirmacaoSenhaServer: confirmacaoSenha
+                confirmacaoSenhaServer: confirmacaoSenha,
+                idoloServer: idolo,
+                geracaoServer: geracao,
+                posicaoServer: posicao
             })
         }).then(function (resposta) {
 
@@ -169,13 +206,13 @@
                 }, "2000")
 
                 limparFormulario();
-            //    finalizarAguardar();
+                //    finalizarAguardar();
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-          //  finalizarAguardar();
+            //  finalizarAguardar();
         });
 
         return false;
@@ -183,10 +220,10 @@
 
     function sumirMensagem() {
         cardErro.style.display = "none"
-    } 
+    }
 
     function tocar() {
-        
+
         container.innerHTML += ` <audio src="cadastro.mp3" autoplay></audio>`
         audio.style.display = `none;`
     }
