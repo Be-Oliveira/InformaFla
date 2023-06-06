@@ -93,10 +93,10 @@
         var detalhes = input_detalhes.value;
 
 
-        var idCamisa = sessionStorage.ID_USUARIO
+        var idUsuario = sessionStorage.ID_USUARIO
 
-        if (idCamisa != '' && idCamisa != undefined) {
-            fetch(`/usuarios/cadastrarcamisa/idCamisa`, {
+        if (idUsuario != '' && idUsuario != undefined) {
+            fetch(`/usuarios/cadastrarcamisa/${idUsuario}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

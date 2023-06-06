@@ -142,6 +142,7 @@ function cadastraridolo(req, res) {
 }
 
 function cadastrarcamisa(req, res) {
+    var idUsuario = req.params.idUsuario
     // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var cor1 = req.body.cor1Server;
     var cor2 = req.body.cor2Server;
@@ -158,7 +159,7 @@ function cadastrarcamisa(req, res) {
     } else {
         
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrarcamisa(cor1, cor2, detalhes)
+        usuarioModel.cadastrarcamisa(cor1, cor2, detalhes,idUsuario)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -167,7 +168,7 @@ function cadastrarcamisa(req, res) {
                 function (erro) {
                     console.log(erro);
                     console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        "\nHouve um erro ao enviar a camisa! Erro: ",
                         erro.sqlMessage
                     );
                     res.status(500).json(erro.sqlMessage);
