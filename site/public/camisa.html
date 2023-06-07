@@ -95,6 +95,8 @@
 
         var idUsuario = sessionStorage.ID_USUARIO
 
+        div_mensagem.innerHTML = ` <span> Obrigado por enviar sua ideia para nós! </span>`
+        
         if (idUsuario != '' && idUsuario != undefined) {
             fetch(`/usuarios/cadastrarcamisa/${idUsuario}`, {
                 method: "POST",
@@ -133,7 +135,7 @@
 
         return false;
 
-        div_mensagem.innerHTML = `Obrigado por enviar sua ideia para nós!`
+      
     }
 
 

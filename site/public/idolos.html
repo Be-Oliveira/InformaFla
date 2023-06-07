@@ -123,7 +123,7 @@
             <option value="Corridas Ofensivas">Corridas Ofensivas</option>
             <option value="Armação Rápida">Armação Rápida</option>
         </select>
-        Insira o número de gols que pretende fazer na competição: <input id="input_gols" type="text">
+        Insira o número de gols que pretende fazer na competição: <input id="input_gols" type="number">
         <br><br>
         <button onclick="simule()">Simular</button> <button onclick="estatisticas()">Ver Estatísticas</button>
         <div id="div_liberta"></div>
@@ -359,7 +359,7 @@ O meio campo não podia ser melhor! Um quinteto de meios de alta qualidade que v
 
             if (golsPro < 13) {
 
-                div_liberta.innerHTML = `Dica do auxiliar técnico : Tente aumentar o número de gols, são 13 jogos se pretende fazer essa quantidade gols 
+                div_liberta.innerHTML = `Dica do auxiliar técnico : Tente aumentar o número de gols, são 13 jogos, se pretende fazer essa quantidade de gols 
         vai ter um ataque muito abaixo do esperado.`
             }
             else {
@@ -455,7 +455,7 @@ O meio campo não podia ser melhor! Um quinteto de meios de alta qualidade que v
 
             if (golsPro < 13) {
 
-                div_liberta.innerHTML = `Dica do auxiliar técnico : Tente aumentar o número de gols, são 13 jogos se pretende fazer essa quantidade gols 
+                div_liberta.innerHTML = `Dica do auxiliar técnico : Tente aumentar o número de gols, são 13 jogos, se pretende fazer essa quantidade de gols 
 vai ter um ataque muito abaixo do esperado.`
             }
             else {
@@ -467,7 +467,7 @@ vai ter um ataque muito abaixo do esperado.`
 
                 else {
 
-                    for ( var contador = 0; contador < golsPro; contador++) {
+                    for (var contador = 0; contador < golsPro; contador += 1) {
 
 
 
@@ -478,7 +478,7 @@ vai ter um ataque muito abaixo do esperado.`
                                 var golsSofridos = golsPro / 100 * 30
                                 var media = golsPro / 13
 
-                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer todos os gols esperados! 
+                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer todos os gols esperados!  <br>
                     Estatísticas:
                     ${golsPro} gols feitos, fazendo uma média de ${media.toFixed(2)} gols por jogo <br>
                  tendo ${golsSofridos.toFixed(0)} gols sofridos ao longo do campeonato <br>
@@ -493,13 +493,13 @@ vai ter um ataque muito abaixo do esperado.`
                                 var golsSofridos = golsPro / 100 * 30 + golsPro
                                 var media = golsPro / 12
 
-                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer os gols esperados, porém sofreu muito na defesa.
+                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer os gols esperados, porém sofreu muito na defesa.  <br>
                 Estatísticas:
                     ${golsPro} gols feitos fazendo uma média de ${media.toFixed(2)} gols por jogo <br>
                    tendo ${golsSofridos.toFixed(0)} gols sofridos ao longo do campeonato <br>
                     
                 `
-                                div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
+                div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
                             }
                         }
 
@@ -510,13 +510,13 @@ vai ter um ataque muito abaixo do esperado.`
                                 var golsSofridos = golsPro / 100 * 30
                                 var media = golsPro / 13
 
-                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer todos os gols esperados! 
+                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer todos os gols esperados!  <br>
     Estatísticas:
     ${golsPro} gols feitos, fazendo uma média de ${media} gols por jogo <br>
  tendo ${golsSofridos} gols sofridos ao longo do campeonato <br>
    
     `
-                                div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
+    div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
 
                             }
 
@@ -525,13 +525,13 @@ vai ter um ataque muito abaixo do esperado.`
                                 var golsSofridos = golsPro / 100 * 30 + golsPro
                                 var media = golsPro / 10
 
-                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer os gols esperados, porém sofreu muito na defesa.
+                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer os gols esperados, porém sofreu muito na defesa.  <br>
 Estatísticas:
     ${golsPro} gols feitos fazendo uma média de ${media} gols por jogo <br>
    tendo ${golsSofridos} gols sofridos ao longo do campeonato <br>
     
 `
-                                div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
+div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
                             }
                         }
 
@@ -542,23 +542,23 @@ Estatísticas:
                                 var golsSofridos = golsPro / 100 * 30
                                 var media = golsPro / 13
 
-                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer todos os gols esperados! 
+                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer todos os gols esperados!  <br>
     Estatísticas:
     ${golsPro} gols feitos, fazendo uma média de ${media.toFixed(2)} gols por jogo <br>
  tendo ${golsSofridos.toFixed(0)} gols sofridos ao longo do campeonato <br>
    
     `
-                                div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
+    div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
 
                             }
-                        }
+
 
                             else {
 
                                 var golsSofridos = golsPro / 100 * 30 + golsPro
                                 var media = golsPro / 13
 
-                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer os gols esperados, porém sofreu muito na defesa.
+                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer os gols esperados, porém sofreu muito na defesa.  <br>
 Estatísticas:
     ${golsPro} gols feitos fazendo uma média de ${media.toFixed(2)} gols por jogo <br>
    tendo ${golsSofridos.toFixed(0)} gols sofridos ao longo do campeonato <br>
@@ -568,43 +568,43 @@ Estatísticas:
                             }
                         }
 
-                        if (estilo == 'Armação Rápida') {
+                    if (estilo == 'Armação Rápida') {
 
-                            if (esquema == '4-3-3' || esquema == '5-3-2') {
+                        if (esquema == '4-3-3' || esquema == '5-3-2') {
 
-                                var golsSofridos = golsPro / 100 * 30
-                                var media = golsPro / 13
+                            var golsSofridos = golsPro / 100 * 30
+                            var media = golsPro / 13
 
-                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer todos os gols esperados! 
+                            div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer todos os gols esperados!  <br>
     Estatísticas:
     ${golsPro} gols feitos, fazendo uma média de ${media.toFixed(2)} gols por jogo <br>
  tendo ${golsSofridos.toFixed(0)} gols sofridos ao longo do campeonato <br>
    
     `
-                                div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
+                            div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
 
-                            }
+                        }
 
-                            else {
+                        else {
 
-                                var golsSofridos = golsPro / 100 * 30 + golsPro
-                                var media = golsPro / 12
+                            var golsSofridos = golsPro / 100 * 30 + golsPro
+                            var media = golsPro / 12
 
-                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer os gols esperados, porém sofreu muito na defesa.
+                            div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer os gols esperados, porém sofreu muito na defesa. <br>
 Estatísticas:
     ${golsPro} gols feitos fazendo uma média de ${media.toFixed(2)} gols por jogo <br>
    tendo ${golsSofridos.toFixed(0)} gols sofridos ao longo do campeonato <br>
     
 `
-                                div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
-                            }
+                            div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
                         }
                     }
-
                 }
-            }
 
+            }
         }
-    
+
+    }
+    }
 
 </script>
