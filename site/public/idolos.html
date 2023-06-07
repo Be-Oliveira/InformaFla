@@ -83,8 +83,9 @@
         <br>
         <br>
         <span>
-        Tá afim de comparar sua preferência com a de outros flamenguistas? <br>
-         Você pode ver esses dados com mais clareza na nossa página de gráficos, que mostra a popularidade dos ídolos escolhidos por vocês!
+            Tá afim de comparar sua preferência com a de outros flamenguistas? <br>
+            Você pode ver esses dados com mais clareza na nossa página de gráficos, que mostra a popularidade dos ídolos
+            escolhidos por vocês!
         </span>
         <br>
         <br>
@@ -95,7 +96,7 @@
         <select name="Esolha" id="input_esquema">
             <option value="4-3-3">4-3-3</option>
             <option value="4-4-2">4-4-2</option>
-            <option value="4-5-1">3-4-3</option>
+            <option value="4-5-1">4-5-1</option>
             <option value="5-3-2">5-3-2</option>
             <option value="3-4-3">3-4-3</option>
             <option value="3-5-2">3-5-2</option>
@@ -124,9 +125,10 @@
         </select>
         Insira o número de gols que pretende fazer na competição: <input id="input_gols" type="text">
         <br><br>
-        <button onclick="simule()">Simular</button>
+        <button onclick="simule()">Simular</button> <button onclick="estatisticas()">Ver Estatísticas</button>
         <div id="div_liberta"></div>
-<div id="div1"></div>
+        <div id="div_estatisticas"></div>
+
 </body>
 
 </html>
@@ -341,50 +343,268 @@ O meio campo não podia ser melhor! Um quinteto de meios de alta qualidade que v
 
     }
 
-    
+
     function simule() {
 
         var estilo = input_estilo.value;
-        var esquema = input_esquema.value
-        var golsPro = input_gols.value
-        contador = 0;
+        var esquema = input_esquema.value;
+        var golsPro = Number(input_gols.value);
 
-     while (contador < golsPro){
-         
-        contador++;
-        div_liberta.innerHTML += `<img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
+        if (golsPro < 1) {
 
-
-     if(estilo == 'Posse de Bola')  {
-
-        if (esquema == '4-5-1' || esquema == '4-4-2' || esquema == '3-5-2') {
-
-
-            div_liberta.innerHTML = `Parabéns você ganhou a Libertadores!`
+            alert('A quantidade de gols não pode ser nula')
 
         }
         else {
-            div_liberta.innerHTML = `Apesar de uma bela campanha, seu time caiu nas semi-finais do cameponato.`
+
+            if (golsPro < 13) {
+
+                div_liberta.innerHTML = `Dica do auxiliar técnico : Tente aumentar o número de gols, são 13 jogos se pretende fazer essa quantidade gols 
+        vai ter um ataque muito abaixo do esperado.`
+            }
+            else {
+
+                if (golsPro > 40) {
+
+                    div_liberta.innerHTML = `Dica do auxiliar técnico : Sabemos que o ataque e o gol são muito importantes nas partidas, mas se defender e evitar os gols do adversário
+        é tão importante quanto, são 13 jogos tente não exagerar na ofensiva para não deixar seu time muito exposto, equilibre o time e saiba quando atacar e quando defender.`
+                }
+
+                else {
+
+                    if (estilo == 'Posse de Bola') {
+
+                        if (esquema == '4-5-1' || esquema == '4-4-2' || esquema == '3-5-2') {
+
+
+                            div_liberta.innerHTML = ` <br> Parabéns você ganhou a Libertadores! Seu time dominava a posse durante todo os jogos, ficava com a bola trocando passes de maneira inteligente até achar uma brecha na defesa adveraária. 
+            A alta qualidade dos jogadores permitiu com que trocassem passes com precisões, além do esquema com vários jogadores no meio-campo que permitiu a predominância da sua equipe nesse setor. Passeou em campo!`
+
+
+                        }
+                        else {
+                            div_liberta.innerHTML += `<br> Derrota amarga! Apesar de uma bela campanha, seu time caiu nas semi-finais do cameponato.Nem sempre a falha está nos jogadores, tente mudar o estilo de jogo, alterar o esquema e tente de novo na próxima temporada.`
+                        }
+                    }
+
+
+                    if (estilo == 'Bolas Longas') {
+
+                        if (esquema == '5-3-2' || esquema == '4-3-3') {
+
+
+                            div_liberta.innerHTML += ` <br> Parabéns você ganhou a Libertadores! Seu time se mostrou difícil de ser batido, com uma defesa sólida e transições rápidas para o ataque todos os adversários sabiam que iria ser uma partida complicada, 
+    a tática de utilizar-se de lançamentos para deixar seus atacantes no mano com um defensor deu muito certo junto ao esquema e os jogadores escolhidos, já pode ser um técnico profissional!`
+
+                        }
+                        else {
+                            div_liberta.innerHTML += ` <br> Eliminação inesperada! Apesar de uma bela campanha, seu time caiu nas quartas de finais do cameponato. Nem sempre a falha está nos jogadores, tente mudar o estilo de jogo, alterar o esquema e tente de novo na próxima temporada.`
+                        }
+
+                    }
+
+                    if (estilo == 'Corridas Ofensivas') {
+
+                        if (esquema == '4-3-3' || esquema == '3-4-3') {
+
+
+                            div_liberta.innerHTML = ` <br> Parabéns você ganhou a Libertadores! Seu time dominava as ações do campo, era um ataque muito forte com três homens lá na frente de muita qualidade e que assustavam a defesa todo o momento.
+    O esquema mais aberto com pontas permitiu mais velocidade nos ataques e a perfeição do meio-campo achava os atacantes livres para dar um passe em profundidade. Uma máquina de golear! `
+
+
+                        }
+                        else {
+                            div_liberta.innerHTML += `<br> Muito azar! Apesar de uma bela campanha, seu time caiu na final do cameponato e consagrou-se como vice da Liberta. Nem sempre a falha está nos jogadores, tente mudar o estilo de jogo, alterar o esquema e tente de novo na próxima temporada.`
+                        }
+
+
+                    }
+
+                    if (estilo == 'Armação Rápida') {
+
+                        if (esquema == '5-3-2' || esquema == '4-3-3') {
+
+
+                            div_liberta.innerHTML = ` <br> Parabéns você ganhou a Libertadores! Seu time realizava uma transição veloz e conseguia contra-atacar em questões de
+ segundos, utilizou sabiamente o tempo com a bola e seus momentos dentro do jogo, sem ficar trocando muitos passes e esperando. Ótimos jogadores aliado a um esquema propício à criações rápidas e ataques letais, soube fazer o que foi preciso para vencer! `
+
+                        }
+                        else {
+                            div_liberta.innerHTML += `<br> Apesar de uma bela campanha, seu time caiu nas semi-finais do cameponato.Nem sempre a falha está nos jogadores, tente mudar o estilo de jogo, alterar o esquema e tente de novo na próxima temporada.`
+                        }
+                    }
+
+
+                }
+            }
         }
     }
 
+    function estatisticas() {
+
+        var estilo = input_estilo.value;
+        var esquema = input_esquema.value;
+        var golsPro = Number(input_gols.value);
+
+
+        if (golsPro < 1) {
+
+            alert('A quantidade de gols não pode ser nula')
+        }
+        else {
+
+            if (golsPro < 13) {
+
+                div_liberta.innerHTML = `Dica do auxiliar técnico : Tente aumentar o número de gols, são 13 jogos se pretende fazer essa quantidade gols 
+vai ter um ataque muito abaixo do esperado.`
+            }
+            else {
+                if (golsPro > 40) {
+
+                    div_liberta.innerHTML = `Dica do auxiliar técnico : Sabemos que o ataque e o gol são muito importantes nas partidas, mas se defender e evitar os gols do adversário
+é tão importante quanto, são 13 jogos tente não exagerar na ofensiva para não deixar seu time muito exposto, equilibre o time e saiba quando atacar e quando defender.`
+                }
+
+                else {
+
+                    for ( var contador = 0; contador < golsPro; contador++) {
+
+
+
+                        if (estilo == 'Posse de Bola') {
+
+                            if (esquema == '4-5-1' || esquema == '4-4-2' || esquema == '3-5-2') {
+
+                                var golsSofridos = golsPro / 100 * 30
+                                var media = golsPro / 13
+
+                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer todos os gols esperados! 
+                    Estatísticas:
+                    ${golsPro} gols feitos, fazendo uma média de ${media.toFixed(2)} gols por jogo <br>
+                 tendo ${golsSofridos.toFixed(0)} gols sofridos ao longo do campeonato <br>
+                   
+                    `
+                                div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
+
+                            }
+
+                            else {
+
+                                var golsSofridos = golsPro / 100 * 30 + golsPro
+                                var media = golsPro / 12
+
+                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer os gols esperados, porém sofreu muito na defesa.
+                Estatísticas:
+                    ${golsPro} gols feitos fazendo uma média de ${media.toFixed(2)} gols por jogo <br>
+                   tendo ${golsSofridos.toFixed(0)} gols sofridos ao longo do campeonato <br>
+                    
+                `
+                                div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
+                            }
+                        }
+
+                        if (estilo == 'Bolas Longas') {
+
+                            if (esquema == '5-3-2' || esquema == '4-3-3') {
+
+                                var golsSofridos = golsPro / 100 * 30
+                                var media = golsPro / 13
+
+                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer todos os gols esperados! 
+    Estatísticas:
+    ${golsPro} gols feitos, fazendo uma média de ${media} gols por jogo <br>
+ tendo ${golsSofridos} gols sofridos ao longo do campeonato <br>
+   
+    `
+                                div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
+
+                            }
+
+                            else {
+
+                                var golsSofridos = golsPro / 100 * 30 + golsPro
+                                var media = golsPro / 10
+
+                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer os gols esperados, porém sofreu muito na defesa.
+Estatísticas:
+    ${golsPro} gols feitos fazendo uma média de ${media} gols por jogo <br>
+   tendo ${golsSofridos} gols sofridos ao longo do campeonato <br>
     
-    if(estilo == 'Bolas Longas')  {
+`
+                                div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
+                            }
+                        }
 
-if (esquema == '5-3-2' || esquema == '4-3-3') {
+                        if (estilo == 'Corridas Ofensivas') {
 
+                            if (esquema == '4-3-3' || esquema == '3-4-3') {
 
-    div_liberta.innerHTML = `Parabéns você ganhou a Libertadores! Seu time se mostrou difícil de ser batido, com uma defesa sólida e transições rápidas para o ataque todos os adversários sabiam que iria ser uma partida complicada, 
-    a tática de utilizar-se de lançamentos para deixar seus atacantes no mano com um defensor deu muito certo junto ao esquema e os jogadores escolhidos, já pode ser um técnico profissional!`
+                                var golsSofridos = golsPro / 100 * 30
+                                var media = golsPro / 13
 
-}
-else {
-    div_liberta.innerHTML = `Apesar de uma bela campanha, seu time caiu nas quartas de finais do cameponato. Nem sempre a falha está nos jogadores, tente mudar o estilo de jogo, alterar o esquema e tente de novo na próxima temporada.`
-}
+                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer todos os gols esperados! 
+    Estatísticas:
+    ${golsPro} gols feitos, fazendo uma média de ${media.toFixed(2)} gols por jogo <br>
+ tendo ${golsSofridos.toFixed(0)} gols sofridos ao longo do campeonato <br>
+   
+    `
+                                div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
 
-}
+                            }
+                        }
 
+                            else {
 
-    }
-}
+                                var golsSofridos = golsPro / 100 * 30 + golsPro
+                                var media = golsPro / 13
+
+                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer os gols esperados, porém sofreu muito na defesa.
+Estatísticas:
+    ${golsPro} gols feitos fazendo uma média de ${media.toFixed(2)} gols por jogo <br>
+   tendo ${golsSofridos.toFixed(0)} gols sofridos ao longo do campeonato <br>
+    
+`
+                                div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
+                            }
+                        }
+
+                        if (estilo == 'Armação Rápida') {
+
+                            if (esquema == '4-3-3' || esquema == '5-3-2') {
+
+                                var golsSofridos = golsPro / 100 * 30
+                                var media = golsPro / 13
+
+                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer todos os gols esperados! 
+    Estatísticas:
+    ${golsPro} gols feitos, fazendo uma média de ${media.toFixed(2)} gols por jogo <br>
+ tendo ${golsSofridos.toFixed(0)} gols sofridos ao longo do campeonato <br>
+   
+    `
+                                div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
+
+                            }
+
+                            else {
+
+                                var golsSofridos = golsPro / 100 * 30 + golsPro
+                                var media = golsPro / 12
+
+                                div_estatisticas.innerHTML = ` <br> Seu time conseguiu fazer os gols esperados, porém sofreu muito na defesa.
+Estatísticas:
+    ${golsPro} gols feitos fazendo uma média de ${media.toFixed(2)} gols por jogo <br>
+   tendo ${golsSofridos.toFixed(0)} gols sofridos ao longo do campeonato <br>
+    
+`
+                                div_liberta.innerHTML += ` <br> <img src="https://media.istockphoto.com/photos/soccer-ball-scores-a-goal-on-the-net-picture-id876596618?k=6&m=876596618&s=170667a&w=0&h=LF5KSOiTkdqGQ1cIPWkrMzXZLnN05mkEh1AkduC7Sis=" style="height: 100px" >`;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+        }
+    
+
 </script>
